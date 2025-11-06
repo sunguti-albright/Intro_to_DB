@@ -14,3 +14,19 @@ CREATE TABLE IF NOT EXISTS Authors(
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(215) NOT NULL
 );
+/*Books: Stores information about books available in the bookstore.
+book_id (Primary Key)
+title VARCHAR(130)
+author_id (Foreign Key referencing Authors table)
+price DOUBLE
+publication_date DATE
+*/
+CREATE TABLE IF NOT EXISTS Books(
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(130) NOT NULL,
+    author_id INT,
+    price DOUBLE,
+    publication_date DATE,
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
+);
+
